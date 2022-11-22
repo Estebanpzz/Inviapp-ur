@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './singup.component.html',
   styleUrls: ['./singup.component.css']
 })
+
 export class SingUpComponent implements OnInit {
 
   constructor() { }

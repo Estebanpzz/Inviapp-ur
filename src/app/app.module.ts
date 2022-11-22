@@ -7,11 +7,6 @@ import { AppComponent } from './app.component';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
-import { APP_BASE_HREF } from '@angular/common';
-
-export const appRoutes: Routes = [
-  { path: 'singup', component: SingUpComponent },
-];
 
 @NgModule({
   declarations: [
@@ -24,9 +19,8 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes, { useHash: false }),
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
