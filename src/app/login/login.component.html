@@ -1,14 +1,17 @@
-<div>
-  <form #login = "ngForm" (ngSubmit) = "login(login.value)">
-    <div>
-      <label for = "email">Correo Electronico:</label>
-      <input (ngModel) = "email" name = "email" id = "email" type = "email" placeholder="abcd@outlook.com">
-    </div>
-    <div>
-      <label for = "password">Contrasena:</label>
-      <input (ngModel) = "password" name = "password" id = "password" type = "password" placeholder="password">
-    </div>
-    <button type="submit">Iniciar Sesion</button>
-    <button type="button">Regresar</button>
-  </form>
-</div>
+<body>
+  <div>
+    <form *ngIf = "" (ngSubmit) = "form.valid && onSubmit()" novalidate>
+      <img src = "">
+      <h1>Inicia Sesion en InviApp</h1>
+      <div>
+        <input [(ngModel)] = "email" name = "email" id = "email" type = "email" placeholder="abcd@outlook.com" required>
+      </div>
+      <div>
+        <input [(ngModel)] = "password" name = "password" id = "password" type = "password" placeholder="password" required>
+      </div>
+      <button type="submit">Iniciar Sesion</button>
+      <p>By continuing, you agree to InviApp's <strong>Terms of Service, Privacy Policy</strong></p>
+            <a href="" class="button">Crear cuenta</a>
+    </form>
+  </div>
+</body>
