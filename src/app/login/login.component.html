@@ -1,17 +1,17 @@
 <body>
   <div>
-    <form *ngIf = "" (ngSubmit) = "form.valid && onSubmit()" novalidate>
-      <img src = "">
-      <h1>Inicia Sesion en InviApp</h1>
-      <div>
-        <input [(ngModel)] = "email" name = "email" id = "email" type = "email" placeholder="abcd@outlook.com" required>
-      </div>
-      <div>
-        <input [(ngModel)] = "password" name = "password" id = "password" type = "password" placeholder="password" required>
-      </div>
-      <button type="submit">Iniciar Sesion</button>
-      <p>By continuing, you agree to InviApp's <strong>Terms of Service, Privacy Policy</strong></p>
+    <form>
+      <img src = "https://static.wixstatic.com/media/d4d800_a7cd9a829a7341aeb3d553571c16ad53~mv2.png/v1/fill/w_478,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Inviapp%20-%20Logo%20-%20black.png" id = "img-form">
+      <h1>Sign in</h1>
+            <div>
+              <input (ngModel) = "email" name = "email" id = "email" type = "email" placeholder="Email">
+            </div>
+            <div>
+              <input (ngModel) = "password" name = "password" id = "password" type = "password" placeholder="Password">
+            </div>
+            <button type="submit">Iniciar Sesion</button>
+            <p>By continuing, you agree to InviApp's <strong>Terms of Service, Privacy Policy</strong></p>
             <a href="" class="button">Crear cuenta</a>
-    </form>
+          </form>
   </div>
 </body>

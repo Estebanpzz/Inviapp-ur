@@ -12,13 +12,15 @@ export class LoginComponent implements OnInit {
     password: null,
   };
 }
-  constructor() { }
+  constructor(public userService: UsersService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-      const {email, password} = this.form;
+  login(){
+    const user = {email: this.email password: this.password};
+    this.userService.login(user).subscribe( data => {
+      console.log(data);
+    })
   }
-
 }
