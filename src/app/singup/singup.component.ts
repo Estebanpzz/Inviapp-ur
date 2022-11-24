@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User, SignUpService} from '../services/singup.service';
-import {Router} from '@angular/router';
+import { UserService } from '../services/user.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,24 +10,26 @@ import {Router} from '@angular/router';
 
 export class SingUpComponent implements OnInit {
 
-  user: User={
-    id_user: '',
-    name_user: '',
-    last_name: '',
-    password_user: '',
-    email_user: ''
-  }
+  formReg: FormGroup;
 
-  constructor(private SignUpService:SignUpService, private router:Router) { }
+  constructor(private UserService: UserService) {
+    this.formReg = new FormGroup({
+      name_user: new FormControl(),
+      last_name: new FormControl(),
+      email_user: new FormControl(),
+      password_user: new FormControl()
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  NewUser(){
-    delete this.user.id_user;
-
-    this.SignUpService.addUser(this.user).subscribe();
-    this.router.navigate(['/inicio']);
+  onSubmit(){
+    this.UserService.registro(this.formReg.value)
+    .then((response:any) => {
+      console.log(response);
+    })
+    .catch((error:any) => console.log(error));
   }
 
 }
