@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-xl border bg-white p-4 mt-3">
+        <div class="row">
+            <div class="col-12 col-lg-6"></div>
+            <div class="col-12 col-lg-6">
+                <a href="" class="text-center"><img src="https://i.pinimg.com/originals/db/95/b5/db95b54a01260a8817d4daf2d860804a.jpg" width="200" alt=""></a>
+                <div class="title"><h1>Sign Up</h1><p>Hi there! Nice to see you again</p></div>
+                <div class="col-12">
+                    <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label text-danger">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email_user" aria-describedby="emailHelp" placeholder="example@inviapp.com">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputUser1" class="form-label text-danger">First Name: </label>
+                          <input type="text" class="form-control" id="exampleInputUser1" formControlName="name_user" aria-describedby="nameHelp" placeholder="John">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputUser2" class="form-label text-danger">Last Name: </label>
+                          <input type="text" class="form-control" id="exampleInputUser2" formControlName="last_name" aria-describedby="nameHelp" placeholder="Doe">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label text-danger">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password_user">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword2" class="form-label text-danger">Confirm Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password2_user">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <input class="btn btn-danger" type="submit" value="Sign Up!">
+                        </div>
+                        <div>
+                          <a href = "../login/login.component.html">Iniciar Sesion</a>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
