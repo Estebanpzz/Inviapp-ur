@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginComponent implements OnInit {
   form: any = {
-    email: null,
-    password: null,
+    email: main@gmail.com,
+    password: 1234,
   };
 }
   constructor(public userService: UsersService) { }
