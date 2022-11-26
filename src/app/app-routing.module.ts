@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
-
-
+import { ModuleWithProviders } from '@angular/core';
 
 const routes: Routes = [
   {path: '', component: FrontpageComponent},
@@ -18,3 +17,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes);

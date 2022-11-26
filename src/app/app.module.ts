@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideAuth, getAuth} from '@angular/fire/auth'; 
 
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 
@@ -19,8 +19,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     AppComponent,
     FrontpageComponent,
     LoginComponent,
-    SingUpComponent
-
+    SingUpComponent,
   ],
   imports: [
     BrowserModule,

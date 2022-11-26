@@ -14,10 +14,10 @@ export class SingUpComponent implements OnInit {
 
   constructor(private UserService: UserService) {
     this.formReg = new FormGroup({
-      name_user: new FormControl(),
-      last_name: new FormControl(),
-      email_user: new FormControl(),
-      password_user: new FormControl()
+      name_user: new FormControl(''),
+      last_name: new FormControl(''),
+      email_user: new FormControl(''),
+      password_user: new FormControl('')
     })
   }
 
