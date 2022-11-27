@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email_user: new FormControl(''),
-    password_user: new FormControl(''),
-  })
-  constructor(public UserService: UserService) { }
+    email_user: new FormControl(),
+    password_user: new FormControl(),
+  });
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
 
-  login(){
-    console.log('Form', this.loginForm.value);
+  login() {
+    console.log(this.loginForm.value)
   }
 }
