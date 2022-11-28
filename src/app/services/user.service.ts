@@ -1,21 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { signOut } from '@firebase/auth';
+import { Injectable, NgZone } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { LoginData } from './datos.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
 
-  constructor(private auth: Auth){}
+  constructor(private auth: Auth) {}
 
-  registro({email_user, password_user}: any){
-    return createUserWithEmailAndPassword(this.auth, email_user, password_user);
+ Login({email, password}: LoginData) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+}
+
+  SingUp({email, password}: LoginData) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
-  login({email_user, password_user}:any){
-      return signInWithEmailAndPassword(this.auth, email_user, password_user); 
-  }
-  logout(){
+
+  SignOut(){
     return signOut(this.auth);
   }
-} 
+}

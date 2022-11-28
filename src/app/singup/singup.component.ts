@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -9,17 +9,19 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class SingUpComponent implements OnInit {
-  constructor(private UserService: UserService) {
+  formReg: FormGroup;
+  constructor(public UserService: UserService) {
+    this.formReg = new FormGroup({
+      name_user: new FormControl(),
+      last_name: new FormControl(),
+      email_user: new FormControl(),
+      password_user: new FormControl()
+    })
   }
-  formReg = new FormGroup({
-    email_user: new FormControl(),
-    password_user: new FormControl(),
-  })
-
-  ngOnInit() {}
+  ngOnInit(): void {}
 
   onSubmit() {
-    this.UserService.registro(this.formReg.value)
+    this.UserService.SingUp(this.formReg.value)
     .then((response:any) => {
       console.log(response);
     })
