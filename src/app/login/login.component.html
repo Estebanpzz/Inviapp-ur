@@ -28,7 +28,7 @@
             <p>Hi there! Nice to see you again</p>
           </div>
           <div class="col-12">
-            <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+            <form [formGroup]="formLogin" (ngSubmit) = "onSubmit()">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label text-danger"
                   >Email</label
@@ -37,7 +37,7 @@
                   type="email"
                   class="form-control"
                   id="exampleInputEmail1"
-                  formControlName="email_user"
+                  formControlName="email"
                   aria-describedby="emailHelp"
                   placeholder="example@inviapp.com"
                 />
@@ -51,7 +51,7 @@
                 <input
                   type="password"
                   class="form-control"
-                  formControlName="password_user"
+                  formControlName="password"
                   id="exampleInputPassword1"
                 />
               </div>

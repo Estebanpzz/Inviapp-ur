@@ -1,6 +1,5 @@
-import { Injectable, NgZone } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { LoginData } from './datos.interface';
+import { Injectable} from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@angular/fire/auth";
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +8,11 @@ export class UserService {
 
   constructor(private auth: Auth) {}
 
- Login({email, password}: LoginData) {
+ Login({email, password}: any) {
     return signInWithEmailAndPassword(this.auth, email, password);
 }
 
-  SingUp({email, password}: LoginData) {
+  SingUp({email, password}: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
