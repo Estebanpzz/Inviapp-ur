@@ -1,12 +1,13 @@
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyBhccP868PEp6bmYHhtMZBAgcq6T6araNk",
-    authDomain: "inviapp-75d9d.firebaseapp.com",
-    projectId: "inviapp-75d9d",
-    storageBucket: "inviapp-75d9d.appspot.com",
-    messagingSenderId: "1002462658328",
-    appId: "1:1002462658328:web:1a0ae095a46617880ca86d",
-    measurementId: "G-ZW5D4Y1LZT"
+    projectId: 'inviapp-ur-4ea86',
+    appId: '1:681522004250:web:371790895e8700af60eca3',
+    databaseURL: 'https://inviapp-ur-4ea86-default-rtdb.firebaseio.com',
+    storageBucket: 'inviapp-ur-4ea86.appspot.com',
+    apiKey: 'AIzaSyD3ca9ThX2Y1pWsDx9QdG_w11CVQ1QlBU8',
+    authDomain: 'inviapp-ur-4ea86.firebaseapp.com',
+    messagingSenderId: '681522004250',
+    measurementId: 'G-X0QP71R80Z',
   },
   production: true
 };

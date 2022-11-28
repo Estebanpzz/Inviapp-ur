@@ -12,11 +12,11 @@ export class UserService {
     return signInWithEmailAndPassword(this.auth, email, password);
 }
 
-  SingUp({email, password}: any) {
+registro({email, password}: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  SignOut(){
+SignOut(){
     return signOut(this.auth);
   }
 }

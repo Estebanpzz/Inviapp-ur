@@ -7,7 +7,7 @@ import { SingUpComponent } from './singup/singup.component';
 
 
 const routes: Routes = [
-  {path: '', component: FrontpageComponent},
+  {path: '', pathMatch: 'full', component: FrontpageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SingUpComponent},
   {path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },

@@ -1,17 +1,18 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-singup',
+  selector: 'app-login',
   templateUrl: './singup.component.html',
-  styleUrls: ['./singup.component.css'],
+  styleUrls: ['./singup.component.css']
 })
 
 export class SingUpComponent implements OnInit {
+
   formReg: FormGroup;
-  constructor(private UserService: UserService, private router: Router) {
+
+  constructor(private UserService: UserService) {
     this.formReg = new FormGroup({
       name_user: new FormControl(),
       last_name: new FormControl(),
@@ -19,14 +20,16 @@ export class SingUpComponent implements OnInit {
       password: new FormControl()
     })
   }
-  ngOnInit(): void {}
 
-  onSubmit() {
-    this.UserService.SingUp(this.formReg.value)
+  ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.UserService.registro(this.formReg.value)
     .then((response:any) => {
       console.log(response);
-      this.router.navigate(["./login"]);
     })
     .catch((error:any) => console.log(error));
   }
+
 }
