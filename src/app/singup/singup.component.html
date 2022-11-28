@@ -15,7 +15,7 @@
                 <a href="" class="text-center"><img src="https://i.pinimg.com/originals/db/95/b5/db95b54a01260a8817d4daf2d860804a.jpg" width="200" alt=""></a>
                 <div class="title"><h1>Sign Up</h1><p>Hi there! Nice to see you again</p></div>
                 <div class="col-12">
-                    <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="createUser" (ngSubmit)="nuevoUsuario()">
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label text-danger">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email_user" aria-describedby="emailHelp" placeholder="example@inviapp.com">
