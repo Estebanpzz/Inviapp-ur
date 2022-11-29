@@ -29,4 +29,8 @@ export class UserService {
   Login({email, password}: any) {
     return signInWithEmailAndPassword(this.auth, email, password);
   };
+
+  Logout() {
+    return signOut(this.auth);
+  }
 }
