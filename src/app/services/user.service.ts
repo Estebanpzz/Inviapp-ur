@@ -24,12 +24,9 @@ export class UserService {
       password_user: user.password_user
     });
     
-    SignOut(){
-      return signOut(this.auth)
-    };
-    
-    Login({email, password}: any) {
-      return signInWithEmailAndPassword(this.auth, email, password);
-    }
   }
+
+  Login({email, password}: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  };
 }
