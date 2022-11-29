@@ -15,7 +15,7 @@ export class SingUpComponent implements OnInit {
 
   createUser: FormGroup;
   submitted = false;
-
+  
   constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
               private userService: UserService) {
     this.createUser = this.fb.group({

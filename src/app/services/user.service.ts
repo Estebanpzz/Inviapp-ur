@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, user } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, user, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { Database } from '@angular/fire/database';
 import { Firestore, collection,addDoc, DocumentData, CollectionReference } from '@angular/fire/firestore';
 import { User } from '../interfaces/user.interface';
@@ -12,11 +12,10 @@ export class UserService {
 
   usersRef: AngularFireObject<any>;
 
-  constructor(private db: AngularFireDatabase){
+  constructor(private db: AngularFireDatabase, private auth: Auth){
     this.usersRef = db.object('users');
   }
   
-
   registro(user: User){
     this.usersRef.set({
       name_user: user.name_user,
@@ -24,5 +23,13 @@ export class UserService {
       email_user: user.email_user,
       password_user: user.password_user
     });
+    
+    SignOut(){
+      return signOut(this.auth)
+    };
+    
+    Login({email, password}: any) {
+      return signInWithEmailAndPassword(this.auth, email, password);
+    }
   }
 }
