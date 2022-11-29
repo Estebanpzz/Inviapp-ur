@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl} from '@angular/forms';
 
@@ -7,7 +7,6 @@ import { FormGroup, FormControl} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
 
 export class LoginComponent implements OnInit {
 
