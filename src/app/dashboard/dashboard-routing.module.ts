@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { InputsComponent } from './inputs/inputs.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { RegproductsComponent } from './regproducts/regproducts.component';
-
 const routes: Routes = [{ path: '', component: DashboardComponent },
 //{path: '', component: HomeComponent,children: [{path: '',loadChildren: () => import('./home/home.component').then(x=>x.HomeComponent)}]},
 { path: 'home', component: HomeComponent },
@@ -13,9 +12,8 @@ const routes: Routes = [{ path: '', component: DashboardComponent },
 { path: 'outputs', component: OutputsComponent },
 { path: 'regproducts', component: RegproductsComponent },
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class DashboardRoutingModule { }

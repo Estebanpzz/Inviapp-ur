@@ -5,7 +5,6 @@ import { FrontpageComponent } from './frontpage/frontpage.component';
 import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
 
-
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: FrontpageComponent},
   {path: 'login', component: LoginComponent},
