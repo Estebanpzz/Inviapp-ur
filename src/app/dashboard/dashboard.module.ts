@@ -8,7 +8,7 @@ import { InputsComponent } from './inputs/inputs.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { RegproductsComponent } from './regproducts/regproducts.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { FormsModule } from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
-  ]
+    DashboardRoutingModule,
+    FormsModule,
+  ],
 })
 export class DashboardModule { }
