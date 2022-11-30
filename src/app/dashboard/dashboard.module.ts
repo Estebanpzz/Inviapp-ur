@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
 import { InputsComponent } from './inputs/inputs.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { RegproductsComponent } from './regproducts/regproducts.component';
@@ -13,7 +13,7 @@ import{ RouterModule} from '@angular/router'
   declarations: [
     
     DashboardComponent,
-    HomeComponent,
+    ProductsComponent,
     InputsComponent,
     OutputsComponent,
     RegproductsComponent,
