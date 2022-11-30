@@ -7,6 +7,7 @@ import { FrontpageComponent } from './frontpage/frontpage.component';
 import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
 import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -20,7 +21,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     AppComponent,
     FrontpageComponent,
     LoginComponent,
-    SingUpComponent
+    SingUpComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,12 +15,10 @@ export class SingUpComponent implements OnInit {
 
   createUser: FormGroup;
   submitted = false;
-
+  
   constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
               private userService: UserService) {
     this.createUser = this.fb.group({
-      name_user: ['', Validators.required],
-      last_name: ['', Validators.required],
       email_user: ['', Validators.required],
       password_user: ['', Validators.required],
       password2_user: ['', Validators.required]
@@ -36,23 +34,29 @@ export class SingUpComponent implements OnInit {
       return ;
     }
     const user: any = {
-      name_user: this.createUser.value.name_user,
-      last_name: this.createUser.value.last_name,
       email_user: this.createUser.value.email_user,
       password_user: this.createUser.value.password_user,
       password2_user: this.createUser.value.password2_user
     }
     if(user.password_user !== user.password2_user){
-      console.log("Las contraseñas deben ser iguales!!");
+      alert("¡Las contraseñas deben ser iguales!");
       return ;
     }else{
       this.afAuth.createUserWithEmailAndPassword(user.email_user, user.password_user).then((response:any) => {
         console.log(response);
-        alert("confirmado");
+        alert("¡Cuenta creada exitosamente!");
       })
-      .catch((error:any) => console.log(error));
-      const response = this.userService.registro(this.createUser.value);
+      .catch((error:any) => (
+              console.log(error),
+              alert(error)
+      ));
+      //const response = this.userService.registro(this.createUser.value);
     }
+    this.createUser.patchValue({
+      email_user: '',
+      password_user: '',
+      password2_user: ''
+    })
   }
 
 }
