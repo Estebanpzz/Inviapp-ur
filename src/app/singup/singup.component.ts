@@ -39,7 +39,7 @@ export class SingUpComponent implements OnInit {
       password2_user: this.createUser.value.password2_user
     }
     if(user.password_user !== user.password2_user){
-      alert("Las contraseñas deben ser iguales!!");
+      alert("¡Las contraseñas deben ser iguales!");
       return ;
     }else{
       this.afAuth.createUserWithEmailAndPassword(user.email_user, user.password_user).then((response:any) => {

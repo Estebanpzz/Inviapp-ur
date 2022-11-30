@@ -21,7 +21,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     AppComponent,
     FrontpageComponent,
     LoginComponent,
-    SingUpComponent,
+    SingUpComponent
   ],
   imports: [
     BrowserModule,

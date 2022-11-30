@@ -25,11 +25,13 @@ export class UserService {
     });
   }
     
-    SignOut(){
-      return signOut(this.auth)
-    };
-    
-    Login({email, password}: any) {
-      return signInWithEmailAndPassword(this.auth, email, password);
-    }
+  }
+
+  Login({email, password}: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  };
+
+  Logout() {
+    return signOut(this.auth);
+  }
 }

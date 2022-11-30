@@ -15,12 +15,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logOut(){
-    this.UserService.SignOut()
-    .then(() => {
-      this.router.navigate(['./']);
-    })
-    .catch(error => console.log(error));
+  onClick() {
+    this.userService.Logout()
+      .then(() => {
+        this.router.navigate(['']);
+      })
+      .catch(error => console.log(error));
   }
-
 }

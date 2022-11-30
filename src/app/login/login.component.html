@@ -28,53 +28,20 @@
             <p>Hi there! Nice to see you again</p>
           </div>
           <div class="col-12">
-            <form [formGroup]="formLogin" (ngSubmit) = "onSubmit()">
+            <form [formGroup]='formLogin' (ngSubmit) = "onSubmit()">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label text-danger"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  formControlName="email"
-                  aria-describedby="emailHelp"
-                  placeholder="example@inviapp.com"
-                />
+                <label for="exampleInputEmail1" class="form-label text-danger">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" placeholder="example@inviapp.com"/>
               </div>
               <div class="mb-3">
-                <label
-                  for="exampleInputPassword1"
-                  class="form-label text-danger"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                  id="exampleInputPassword1"
-                />
+                <label for="exampleInputPassword1" class="form-label text-danger">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"/>
               </div>
               <div class="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label class="form-check-label" for="exampleCheck1"
-                  >Check me out</label
-                >
+                <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
               <div class="d-grid gap-2">
                 <input class="btn btn-danger" type="submit" value="Log in!"/>
               </div>
               <div>
-                <a [routerLink]="['/signup']">Crear cuenta</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
