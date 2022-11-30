@@ -43,6 +43,7 @@ export class SingUpComponent implements OnInit {
       alert("¡Las contraseñas deben ser iguales!");
       return ;
     }else{
+      const response = await this.userService.registro(this.createUser.value);
       const res = await this.afAuth.createUserWithEmailAndPassword(user.email_user, user.password_user).then((response:any) => {
         console.log(response);
         alert("¡Cuenta creada exitosamente!");
