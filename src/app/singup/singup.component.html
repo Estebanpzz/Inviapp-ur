@@ -17,22 +17,22 @@
                 <div class="col-12">
                     <form [formGroup]="createUser" (ngSubmit)="nuevoUsuario()">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label text-danger">Email address</label>
+                          <label for="exampleInputEmail1" class="form-label text-primary">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email_user" aria-describedby="emailHelp" placeholder="example@inviapp.com">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label text-danger">Password</label>
+                          <label for="exampleInputPassword1" class="form-label text-primary">Password</label>
                           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password_user">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword2" class="form-label text-danger">Confirm Password</label>
+                          <label for="exampleInputPassword2" class="form-label text-primery">Confirm Password</label>
                           <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password2_user">
                         </div>
                         <div class="d-grid gap-2">
-                            <input class="btn btn-danger" type="submit" value="Sign Up!">
+                            <input class="btn btn-primary" type="submit" value="Sign Up">
+                            <a class="btn btn-light border" href="">Sign in / home</a>
                         </div>
                         <div>
-                          <a>Iniciar Sesion</a>
                         </div>
                       </form>
                 </div>
