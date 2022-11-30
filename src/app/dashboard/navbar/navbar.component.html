@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark  min-vh-100"  >
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-primary  min-vh-100"  >
     <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-4">Inviapp</span>
@@ -6,36 +6,39 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a routerLink="home" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use/></svg>
-          Home
-        </a>
+        <div class="d-grid gap-2">
+          <a routerLink="home" class="btn btn-light text-primary" type="button">Products</a>
+        </div>
       </li>
       <li>
-        <a routerLink="inputs" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"></svg>
-          Input Product
-        </a>
+        <div class="d-grid gap-2">
+          <a routerLink="inputs" class="btn btn-primary" >Input Product</a>
+        </div>
       </li>
       <li>
-        <a routerLink="outputs" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"></svg>
-          Output Product
-        </a>
+        <div class="d-grid gap-2">
+          <a routerLink="outputs" class="btn btn-primary" >Output Product</a>
+        </div>
       </li>
       <li>
-        <a routerLink="regproducts" class="nav-link text-white">
-          <svg class="bi me-2" width="16" height="16"></svg>
-          Register Product
-        </a>
+        <div class="d-grid gap-2">
+          <a routerLink="regproducts" class="btn btn-primary" >Register Product</a>
+        </div>
       </li>
     </ul>
-    <hr>
-    <div class="dropdown">
-      
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        
-        <button (click)="onClick()" class="btn btn-outline-danger mt-5">Logout</button>
+
+    <div class="container-fluid">
+      <a href="" class="text-decoration-none"><div class="row m-0">
+        <div class="col-4"><img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle"></div>
+        <div class="col-8"><p class="text-decoration-none text-light">My profile</p></div>
+      </div></a>
+      <hr>
+      <div class="row">
+        <button (click)="onClick()" class="btn btn-danger">Logout</button>
+      </div>
     </div>
+
+   
+
   </div>
 
