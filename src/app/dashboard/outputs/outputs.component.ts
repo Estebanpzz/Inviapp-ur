@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./outputs.component.css']
 })
 export class OutputsComponent implements OnInit {
-  Id: any;
-  ProductName: any;
-  Category: any;
-  Capacity: any;
-  MinimumStack: any;
+
   constructor() { }
 
   ngOnInit(): void {
