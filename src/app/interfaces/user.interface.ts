@@ -1,6 +1,4 @@
-export interface User {
-    name_user: string;
-    last_name: string;
+export interface UserI {
     email_user: string;
     password_user: string;
 }

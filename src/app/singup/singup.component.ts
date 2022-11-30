@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { async } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { UserI } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SingUpComponent implements OnInit {
   submitted = false;
   
   constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
-              private userService: UserService) {
+              private userService: UserService, private router: Router) {
     this.createUser = this.fb.group({
       email_user: ['', Validators.required],
       password_user: ['', Validators.required],
@@ -42,15 +43,18 @@ export class SingUpComponent implements OnInit {
       alert("¡Las contraseñas deben ser iguales!");
       return ;
     }else{
-      this.afAuth.createUserWithEmailAndPassword(user.email_user, user.password_user).then((response:any) => {
+      const res = await this.afAuth.createUserWithEmailAndPassword(user.email_user, user.password_user).then((response:any) => {
         console.log(response);
         alert("¡Cuenta creada exitosamente!");
+        this.userService.Logout().then(() => {
+          this.router.navigate(['']);
+        }).catch(error => console.log(error));
+        this.router.navigate(['']);
       })
       .catch((error:any) => (
               console.log(error),
               alert(error)
       ));
-      //const response = this.userService.registro(this.createUser.value);
     }
     this.createUser.patchValue({
       email_user: '',

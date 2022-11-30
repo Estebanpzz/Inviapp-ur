@@ -6,12 +6,14 @@ import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: FrontpageComponent, ...canActivate(() => redirectLoggedInTo(['/dashboard']))},
   {path: 'login', component: LoginComponent, ...canActivate(() => redirectLoggedInTo(['/dashboard']))},
   {path: 'signup', component: SingUpComponent},
   {path: 'dashboard', ...canActivate(() => redirectUnauthorizedTo([''])), loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  {path: 'userinfo', component: UserinfoComponent},
 ];
 
 @NgModule({
