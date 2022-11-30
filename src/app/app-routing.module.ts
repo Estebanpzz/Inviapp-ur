@@ -7,6 +7,7 @@ import { SingUpComponent } from './singup/singup.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: FrontpageComponent, ...canActivate(() => redirectLoggedInTo(['/dashboard']))},
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [DashboardModule, CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

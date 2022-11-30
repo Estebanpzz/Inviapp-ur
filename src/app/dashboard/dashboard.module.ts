@@ -7,7 +7,7 @@ import { InputsComponent } from './inputs/inputs.component';
 import { OutputsComponent } from './outputs/outputs.component';
 import { RegproductsComponent } from './regproducts/regproducts.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import{ RouterModule} from '@angular/router'
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import{ RouterModule} from '@angular/router'
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class DashboardModule { }

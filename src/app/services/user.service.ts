@@ -15,10 +15,6 @@ export class UserService {
   registro(user: UserI){
     const usersRef = collection(this.firestore, 'Users');
     return addDoc(usersRef, user);
-    /*this.usersRef.set({
-      email_user: user.email_user,
-      password_user: user.password_user
-    });*/
   }
 
   Login({email, password}: any) {

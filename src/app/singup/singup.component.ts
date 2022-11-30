@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { async } from 'rxjs';
 import { UserService } from '../services/user.service';
-import { UserI } from '../interfaces/user.interface';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +18,8 @@ export class SingUpComponent implements OnInit {
   submitted = false;
   
   constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
-              private userService: UserService, private router: Router) {
+              private userService: UserService, private router: Router,
+              private db: Firestore) {
     this.createUser = this.fb.group({
       email_user: ['', Validators.required],
       password_user: ['', Validators.required],

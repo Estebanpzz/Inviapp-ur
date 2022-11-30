@@ -7,42 +7,48 @@
     <div class="row p-1">
         <div class="col-12 col-md-8">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class=" mb-3">
-                        <label for="ProductName" class="form-label fw-bold">Product Name</label>
-                        <input [(ngModel)]="ProductName"  type="text" class="form-control form-control-sm" id="ProductName" placeholder="Product A">
-                      </div>
+                <form [formGroup]="newProduct" (ngSubmit)="agregarProducto()">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class=" mb-3">
+                                <label for="ProductName" class="form-label fw-bold">Product Name</label>
+                                <input [(ngModel)]="ProductName" formControlName="name_product"  type="text" class="form-control form-control-sm" id="ProductName" placeholder="Product A">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="Category" class="form-label fw-bold">Category</label>
+                                <input [(ngModel)]="Category" formControlName="category_product" type="text" class="form-control form-control-sm" id="Category" placeholder="Solid/Liquid">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="Capacity" class="form-label fw-bold">Capacity</label>
+                                <input [(ngModel)]="Capacity" formControlName="capacity_product" type="text" class="form-control form-control-sm" id="Capacity" placeholder="Stack - 200">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="Id" class="form-label fw-bold">Id</label>
+                                <input [(ngModel)]="Id" type="text" formControlName="id_product" class="form-control form-control-sm" id="Id" placeholder="#ABC123">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="MinimumStack" class="form-label fw-bold">Minimum Stack </label>
+                                <input [(ngModel)]="MinimumStack" formControlName="minimumStack_product" type="text" class="form-control form-control-sm" id="MinimumStack" placeholder="Stack - 200">
+                            </div>
+                        </div>
+                        <div class=" p-3">
+                            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                                <button class="btn btn-primary" type="submit">Register</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="Category" class="form-label fw-bold">Category</label>
-                            <input [(ngModel)]="Category" type="text" class="form-control form-control-sm" id="Category" placeholder="Solid/Liquid">
-                          </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="Capacity" class="form-label fw-bold">Capacity</label>
-                            <input [(ngModel)]="Capacity" type="text" class="form-control form-control-sm" id="Capacity" placeholder="Stack - 200">
-                          </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="Id" class="form-label fw-bold">Id</label>
-                            <input [(ngModel)]="Id" type="text" class="form-control form-control-sm" id="Id" placeholder="#ABC123">
-                          </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="mb-3">
-                            <label for="MinimumStack" class="form-label fw-bold">Minimum Stack </label>
-                            <input [(ngModel)]="MinimumStack" type="text" class="form-control form-control-sm" id="MinimumStack" placeholder="Stack - 200">
-                          </div>
-                    </div>
-                    </div>
-                </div>
+                </form>
             </div>
-            
-            
+        </div>
+              
         <div class="col-12 col-md-4">
             <div class="border p-3">
                 <p class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upc-scan" viewBox="0 0 16 16">
@@ -80,17 +86,11 @@
                         <path d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z"/>
                       </svg> Minimum Stack</p>
                 <p>Product name is: <a class="text-primary" style="text-decoration: none;">{{MinimumStack}}  </a> </p>
-                
             </div>
             <div class=" p-3">
                 <p>see a table to view the product record, review the information before confirming</p>
-                <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                
-                    <button class="btn btn-primary" type="button">Register</button>
-                  </div>
             </div>
-
-           
+            
         </div>
     </div>
 </div>
