@@ -15,30 +15,29 @@
                 <a href="" class="text-center"><img src="https://i.pinimg.com/originals/db/95/b5/db95b54a01260a8817d4daf2d860804a.jpg" width="200" alt=""></a>
                 <div class="title"><h1>Sign Up</h1><p>Hi there! Welcome to InviApp</p></div>
                 <div class="col-12">
-                    <form [formGroup]="createUser" (ngSubmit)="nuevoUsuario()">
+                    <form [formGroup]="createUser">
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label text-danger">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email_user" aria-describedby="emailHelp" placeholder="example@inviapp.com">
+                          <input type="email" [(ngModel)]="datos.email" class="form-control" id="exampleInputEmail1" formControlName="email_user" aria-describedby="emailHelp" placeholder="example@inviapp.com">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label text-danger">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password_user">
+                          <input type="password" [(ngModel)]="datos.password" class="form-control" id="exampleInputPassword1" formControlName="password_user">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword2" class="form-label text-danger">Confirm Password</label>
                           <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password2_user">
                         </div>
                         <div class="d-grid gap-2">
-                            <input class="btn btn-danger" type="submit" value="Sign Up!">
+                            <input class="btn btn-danger" type="submit" value="Sign Up!" (click)="registro()"/>
                         </div>
                         <div>
-                          <a [routerLink]="['/login']">Iniciar Sesion</a>
+                          <a routerLinkActive="active" [routerLink]="['/login']">Iniciar Sesion</a>
                         </div>
                       </form>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 </html>

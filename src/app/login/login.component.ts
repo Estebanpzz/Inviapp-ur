@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router'
+import { AuthService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +11,19 @@ import { Router } from '@angular/router'
 
 export class LoginComponent implements OnInit {
 
-  formLogin: FormGroup;
-
-  constructor(private UserService: UserService, private router: Router) {
-    this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
+  id = {
+    email: '',
+    password: ''
   }
+
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    this.UserService.Login(this.formLogin.value)
-    .then((response:any) => {
-      console.log(response);
-      this.router.navigate(['/dashboard']);
-    })
-    .catch((error:any) => console.log(error));
+  async login(){
+    await this.auth.login(this.id.email, this.id.password);
+    
   }
+
 }

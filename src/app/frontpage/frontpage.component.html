@@ -39,13 +39,13 @@
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2">InviApp is an inventory management application</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Created and distributed by the team of specialists from the Universidad Regiomontana</p>
-                                <form [formGroup]='formLogin' (ngSubmit) = "onSubmit()">
+                                <form >
                                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                         
                                         <div class="input-group input-group-lg ">
-                                            <input type="email" aria-label="email" formControlName="email" class="form-control" placeholder="example@inviapp.com">
-                                            <input type="password" aria-label="password" formControlName="password" class="form-control" placeholder="xxxxx">
-                                            <input class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" routerLink="/dashboard" value="Sign in"/>
+                                            <input type="email" aria-label="email" #email formControlName="email" class="form-control" placeholder="example@inviapp.com">
+                                            <input type="password" aria-label="password" #password formControlName="password" class="form-control" placeholder="xxxxx">
+                                            <input class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" routerLink="/dashboard" value="Sign in"  />
                                         </div>
                                                         
                                     </div>

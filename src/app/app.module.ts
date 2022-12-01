@@ -7,6 +7,8 @@ import { FrontpageComponent } from './frontpage/frontpage.component';
 import { LoginComponent } from './login/login.component';
 import { SingUpComponent } from './singup/singup.component';
 import { HttpClientModule } from '@angular/common/http';
+import {AuthService} from "./services/user.service";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -29,13 +31,14 @@ import { AngularFireModule } from '@angular/fire/compat';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
