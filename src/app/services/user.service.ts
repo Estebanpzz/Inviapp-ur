@@ -18,8 +18,6 @@ export class UserService {
   
   registro(user: User){
     this.usersRef.set({
-      name_user: user.name_user,
-      last_user: user.last_name,
       email_user: user.email_user,
       password_user: user.password_user
     });
