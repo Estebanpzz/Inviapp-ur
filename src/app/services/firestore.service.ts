@@ -1,32 +1,42 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore} from '@angular/fire/compat/firestore';
+import {UserID} from './user';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database'
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class FirestoreService{
-    constructor(public database: AngularFirestore){}
-    createDoc(data: any, path: any, id: any){
-        const collection = this.database.collection(path);
-        return collection.doc(id).set(data);
+export class FireService{
+    usersRef: AngularFireList<any>;
+    userRef: AngularFireObject<any>;
+    constructor(public database: AngularFireDatabase){}
+
+    createDoc(userid: UserID){
+        this.usersRef.push({
+            email: userid.email,
+            password: userid.password,
+        });
     }
 
-    getDoc(path: any, id: any){
-        const collection = this.database.collection(path);
-        return collection.doc(id).valueChanges();
+    getDoc(id: string){
+        this.userRef = this.database.object('Usuarios' + id);
+        return this.userRef;
     }
 
-    deleteDoc(path: any, id: any){
-        const collection = this.database.collection(path);
-        return collection.doc(id).delete();
+    getDocList(){
+        this.usersRef = this.database.list('Usuarios');
+        return this.usersRef;
     }
 
-    updateDoc(data: any, path: string, id: string){
-        const collection = this.database.collection(path);
-        return collection.doc(id).update(data);
+    deleteDoc(id: string){
+        this.userRef = this.database.object('Usuarios' + id);
+        this.userRef.remove();
     }
-    getId(){
-        return this.database.createId();
+
+    updateDoc(userid: UserID){
+        this.userRef.update({
+            email: userid.email,
+            password: userid.password,
+        });
     }
 }

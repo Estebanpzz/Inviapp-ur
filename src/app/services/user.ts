@@ -1,7 +1,5 @@
 export interface UserID{
-    //nombre: string;
-    //apellido: string;
-    uid: string;
+    id: string;
     password: string;
     email: string,
 }
