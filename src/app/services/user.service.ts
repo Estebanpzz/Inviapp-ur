@@ -32,4 +32,13 @@ export class UserService {
       return user.uid;
     }
   }
+
+  async getUserEmail(){
+    const user = await this.auth.currentUser;
+    if(user === null){
+      return null;
+    }else{
+      return user.email;
+    }
+  }
 }

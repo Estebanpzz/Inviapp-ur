@@ -6,47 +6,18 @@
               </svg></a>  User info</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 mt-1">
-            <div class="card text-center sidebar">
-                <img src="https://github.com/mdo.png" class="rounded-circle" width="100">
-                <div class="col-md-8 mt-1">
-                    <div class="card mb-3 content">
-                        <h1 class="m-3 pt-3">About</h1>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Name</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    Ricardo Guzman
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>User</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    RGuzman
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Email</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    ricardo.guzman@u-erre.mx
-                                </div>
-                            </div>
-                        </div>
+    <div class="col-6 container">
+        <div class="card text-center sidebar">
+            <div class="card-header">
+                <h1>User Profile</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Email</h5>
                     </div>
-                    <div class="border">
-                        <button class="btn btn-md btn-outline-primary">
-                            <i class="fa fa-user"></i>
-                            EDIT
-                        </button>
+                    <div class="col-md-8 text-secondary">
+                        {{userInfo.email}}
                     </div>
                 </div>
             </div>

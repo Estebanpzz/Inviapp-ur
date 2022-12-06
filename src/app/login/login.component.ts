@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const uid = await this.UserService.getUid();
-    console.log(uid);
+    
   }
 
   async onSubmit() {
