@@ -1,56 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Products } from '../interfaces/products.interface';
-import {AngularFirestore} from '@angular/fire/compat/firestore'
+import { collectionData, Firestore, collection, addDoc, CollectionReference, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { DocumentData } from '@angular/fire/compat/firestore';
+import { doc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor(private angularFirestore: AngularFirestore){}
+  private productCollection: CollectionReference<DocumentData> 
+
+  constructor(private firestore: Firestore){
+    this.productCollection = collection(this.firestore, 'products')
+  }
   
+  addProducts(product: Products){
+    return addDoc(this.productCollection, product);
+  }
+
+  getProductsId(id: string){
+    const ref = doc(this.firestore, 'products/${id}');
+    return docData(ref, {idField: 'id'});
+  }
+
   getProducts(){
-    return this.angularFirestore
-    .collection('Products')
-    .snapshotChanges()
-  }
-  getProductsById(id_product:any){
-    return this.angularFirestore
-    .collection('Products')
-    .doc(id_product)
-    .valueChanges()
+    return collectionData(this.productCollection, {
+      idField: 'id'
+    }) as Observable<Products[]>;
   }
 
-  createProducts(products: Products){
-    return new Promise<any> ( ( resolve, reject ) =>{
-      this.angularFirestore
-      .collection("Products")
-      .add(products)
-      .then((response)=>{
-        console.log(response)
-      },
-      (error) => {
-        reject(error)
-      })
-    })
-  }
-
-  updateProducts(products: Products, id_product:any){
-    return this.angularFirestore
-    .collection('Products')
-    .doc(id_product)
-    .update({
-      name_product: products.name_product,
-      category_product: products.category_product,
-      capacity_product: products.capacity_product,
-      minimumStack_product: products.minimumStack_product,
-    });
-  }
-
-  deleteProducts(products:any){
-    return this.angularFirestore
-    .collection('Products')
-    .doc(products.id_product)
-    .delete();
-  }
 }   

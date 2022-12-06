@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Products } from 'src/app/interfaces/products.interface';
 
 
 @Component({
@@ -11,20 +10,21 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./regproducts.component.css']
 })
 export class RegproductsComponent implements OnInit {
-  public productsForm: FormGroup 
-  constructor(public productService: ProductsService, public formBuilder: FormBuilder, public router: Router) {
-    this.productsForm = this.formBuilder.group({
-      name_product : [''],
-      category_product : [''],
-      capacity_product : [''],
-      minimumStack_product : [''],
-    })
+
+  productForm: FormGroup;
+  constructor(private producto: Products,private productService: ProductsService, public fb: FormBuilder) {
   }
+
   ngOnInit(): void {
+    this.producForm;
   }
 
-  onSubmit(){
-    this.productService.createProducts(this.productsForm.value)
+  producForm(){
+    this.productForm = this.fb.group({
+      name_producto: [this.producto.name_product, [Validators.required]],
+      category_product: [this.producto.category_product, [Validators.required]],
+      capacity_product: [this.producto.capacity_product, [Validators.required]],
+      minimumStack_product: [this.producto.minimumStack_product, [Validators.required]],
+    });
   }
-
 }

@@ -11,35 +11,9 @@
               <th scope="col">MinimumStack</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngfor="let product of products">
-              <th scope="row">1</th>
-              <td>{{product.name_product}}</td>
-              <td>{{product.category_product}}</td>
-              <td>{{product.capacity_product}}</td>
-              <td>{{product.minimumStack_product}}</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>200</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>400</td>
-            </tr>
-            <tr *ngfor="let product of products">
-              <th scope="row">5</th>
+          <tbody *ngIf="products">
+            <tr *ngfor="let product of Products; index as i">
+              <th scope="row">{{ i+1}}</th>
               <td>{{product.name_product}}</td>
               <td>{{product.category_product}}</td>
               <td>{{product.capacity_product}}</td>

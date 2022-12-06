@@ -7,38 +7,38 @@
         </div>
     </div>
     <div class="row p-1">
-        <form  [formGroup]="productsForm" (ngSubmit)="onSubmit()">
+        <form  [formGroup] = "productForm" (ngSubmit)="onSubmit()">
             <div class="col-12 col-md-8">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class=" mb-3">
                                 <label for="ProductName" class="form-label fw-bold">Product Name</label>
-                                <input  formControlName="name_product" type="text" class="form-control form-control-sm" id="ProductName" placeholder="Product A">
+                                <input  formControlName = "product.name_product" type="text" class="form-control form-control-sm" id="ProductName" placeholder="Product A">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="Category" class="form-label fw-bold">Category</label>
-                                <input  formControlName="category_product" type="text" class="form-control form-control-sm" id="Category" placeholder="Solid/Liquid">
+                                <input formControlName = "product.category_product" type="text" class="form-control form-control-sm" id="Category" placeholder="Solid/Liquid">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="Capacity" class="form-label fw-bold">Capacity</label>
-                                <input  formControlName="capacity_product" type="text" class="form-control form-control-sm" id="Capacity" placeholder="Stack - 200">
+                                <input formControlName = "product.capacity_product" type="text" class="form-control form-control-sm" id="Capacity" placeholder="Stack - 200">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="Id" class="form-label fw-bold">Id</label>
-                                <input  formControlName="id_product" type="text" class="form-control form-control-sm" id="Id" placeholder="#ABC123">
+                                <input formControlName="id_product" type="text" class="form-control form-control-sm" id="Id" placeholder="#ABC123">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="MinimumStack" class="form-label fw-bold">Minimum Stack </label>
-                                <input formControlName="minimumStack_product" type="text" class="form-control form-control-sm" id="MinimumStack" placeholder="Stack - 200">
+                                <input formControlName = "product.minimumStack_product" type="text" class="form-control form-control-sm" id="MinimumStack" placeholder="Stack - 200">
                             </div>
                         </div>
                     </div>
