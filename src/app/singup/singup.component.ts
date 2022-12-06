@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore} from '@angular/fire/compat/firestore';
-
-import { AuthService} from '../services/user.service';
-import { UserID } from '../services/user';
-import {    Router } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { async } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,25 +16,54 @@ export class SingUpComponent implements OnInit {
   createUser: FormGroup;
   submitted = false;
   
-  datos: UserID = {
-    password: '',
-    email: '',
-    uid: '',
+  constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
+              private userService: UserService, private router: Router, private users: UserService) {
+    this.createUser = this.fb.group({
+      email_user: ['', Validators.required],
+      password_user: ['', Validators.required],
+      password2_user: ['', Validators.required]
+    })
   }
 
-  constructor(private auth: AuthService, private router: Router, public database: AngularFirestore) {
+  ngOnInit() {
   }
 
-  ngOnInit(): void {
+  async nuevoUsuario(){
+    this.submitted = true;
+    if(this.createUser.invalid){
+      return ;
+    }
+    const user: any = {
+      email_user: this.createUser.value.email_user,
+      password_user: this.createUser.value.password_user,
+      password2_user: this.createUser.value.password2_user
+    }
+    const newUser: any = {
+      email_user: this.createUser.value.email_user,
+      password_user: this.createUser.value.password_user
+    }
+    if(user.password_user !== user.password2_user){
+      alert("¡Las contraseñas deben ser iguales!");
+      return ;
+    }else{
+      const res = await this.userService.registro(newUser).then((response:any) => {
+        console.log(response);
+        alert("¡Cuenta creada exitosamente!");
+        this.userService.Logout().then(() => {
+          this.router.navigate(['']);
+        }).catch(error => console.log(error));
+        this.router.navigate(['']);
+      })
+      .catch((error:any) => (
+              console.log(error),
+              alert(error)
+      ));
+    }
+    this.createUser.patchValue({
+      email_user: '',
+      password_user: '',
+      password2_user: ''
+    })
   }
-    
-  registro(){
-    this.auth.registro(this.datos).catch (error => {
-      console.log(error);
-    })      
-  }
-  createDoc(data: any, id: any){
-    const collection = this.database.collection('Usuarios');
-    return collection.doc(id).set(data);
-}
+
 }

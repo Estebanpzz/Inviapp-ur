@@ -7,7 +7,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <div class="d-grid gap-2">
-        <a routerLink="home" class="btn btn-light text-primary" type="button">Products</a>
+        <a routerLink="products" class="btn btn-light text-primary" type="button">Products</a>
       </div>
     </li>
     <li>
@@ -28,11 +28,9 @@
   </ul>
 
   <div class="container-fluid">
-    <a class="text-decoration-none" id="userinfo" routerLinkActive="active" routerLink="/userinfo">
-      <div class="col-8">
-        <p class="text-decoration-none text-light">My profile</p>
-      </div>
-    </a>
+    <a  id="userinfo" routerLinkActive="active" routerLink="/userinfo" class="text-decoration-none"><div class="row m-0">
+      <div class="col-8"><p class="text-decoration-none text-light">My profile</p></div>
+    </div></a>
     <hr>
     <div class="row">
       <button (click)="onClick()" class="btn btn-danger">Logout</button>
