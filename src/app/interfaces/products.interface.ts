@@ -1,5 +1,5 @@
 export interface Products {
-    id_user: string;
+    uid_user: any;
     name_product: string;
     id_product: string;
     category_product: string;

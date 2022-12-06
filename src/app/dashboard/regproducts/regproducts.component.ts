@@ -36,9 +36,9 @@ export class RegproductsComponent implements OnInit {
   }
 
   async agregarProducto(){
-    const user = this.firebase.user;
-    console.log(user);
+    const uid = await this.userService.getUid();
     const product: any = {
+      uid_user: uid,
       name_product: this.newProduct.value.name_product,
       category_product: this.newProduct.value.category_product,
       capacity_product: this.newProduct.value.capacity_product,
