@@ -15,13 +15,15 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontpageComponent,
     LoginComponent,
-    SingUpComponent
+    SingUpComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
