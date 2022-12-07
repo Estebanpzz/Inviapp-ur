@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-inputs',
   templateUrl: './inputs.component.html',
@@ -12,9 +12,11 @@ export class InputsComponent implements OnInit {
   Capacity: any;
   MinimumStack: any;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
-  
+  goBack(): void {
+    this.location.back();
+  }
 }

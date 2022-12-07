@@ -6,6 +6,7 @@ import { ProductsService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
 import { DataService } from 'src/app/services/data.service';
 import { Products } from '../../interfaces/products.interface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-regproducts',
@@ -31,7 +32,7 @@ export class RegproductsComponent implements OnInit {
   minimumStack_product: '' ;
 
   
-  constructor(private userService: UserService, private router: Router, private data : DataService) {
+  constructor(private userService: UserService, private router: Router, private data : DataService,private location: Location) {
      
     }
 
@@ -80,7 +81,9 @@ export class RegproductsComponent implements OnInit {
       alert('Correct register');
     }
 
-
+    goBack(): void {
+      this.location.back();
+    }
    
 
 }
