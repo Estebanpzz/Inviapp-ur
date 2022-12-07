@@ -11,6 +11,11 @@ import { Products } from '../../interfaces/products.interface';
 })
 
 export class ProductsComponent implements OnInit {
+  products: Products[];
+  p: number = 1;
+  hideWhenNoStudent: boolean = false;
+  noData: boolean = false;
+  preLoader: boolean = true;
 
   productsList : Products[]=[];
   productObj: Products = {

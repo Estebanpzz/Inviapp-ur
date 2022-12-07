@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, user, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { Firestore, collection,addDoc, DocumentData, CollectionReference } from '@angular/fire/firestore';
 import { Products } from '../interfaces/products.interface';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -9,13 +7,26 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class ProductsService {
 
+  private productCollection: CollectionReference<DocumentData> 
+
   constructor(private firestore: Firestore){
-    
+    this.productCollection = collection(this.firestore, 'products')
   }
   
-  nuevoProducto(product: Products){
-    const productRef = collection(this.firestore, 'Products');
-    return addDoc(productRef, product);
+  addProducts(product: Products){
+    return addDoc(this.productCollection, product);
   }
-  
-}
+
+  getProductsId(id: string){
+    const ref = doc(this.firestore, 'products/${id}');
+    return docData(ref, {idField: 'id'});
+  }
+
+  getProducts(){
+    return collectionData(this.productCollection, {
+      idField: 'id'
+    }) as Observable<Products[]>;
+  }
+
+}   
+
