@@ -18,8 +18,8 @@
                                 <div class="col-md-3">
                                     <h5>Name</h5>
                                 </div>
-                                <div class="col-md-9 text-secondary">
-                                    Ricardo Guzman
+                                <div class="col-md-9 text-secondary" >
+                                    <input [(ngModel)]="email" type="text" class="form-control form-control-sm" id="email" name="email">
                                 </div>
                             </div>
                             <hr>
@@ -28,7 +28,7 @@
                                     <h5>User</h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
-                                    RGuzman
+                                    <input [(ngModel)]="password" type="text" class="form-control form-control-sm" id="password" name="password">
                                 </div>
                             </div>
                             <hr>
@@ -43,10 +43,7 @@
                         </div>
                     </div>
                     <div class="border">
-                        <button class="btn btn-md btn-outline-primary">
-                            <i class="fa fa-user"></i>
-                            EDIT
-                        </button>
+                        <button class="btn btn-primary" (click)="onSubmit()" type="button">Add Product</button>
                     </div>
                 </div>
             </div>

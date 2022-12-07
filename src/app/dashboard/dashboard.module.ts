@@ -17,7 +17,7 @@ import{ RouterModule } from '@angular/router';
     InputsComponent,
     OutputsComponent,
     RegproductsComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
