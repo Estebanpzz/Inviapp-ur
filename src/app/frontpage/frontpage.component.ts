@@ -26,10 +26,12 @@ export class FrontpageComponent implements OnInit {
   onSubmit() {
     this.UserService.Login(this.formLogin.value)
     .then((response:any) => {
-      console.log(response);
       this.router.navigate(['/dashboard']);
     })
-    .catch((error:any) => console.log(error));
+    .catch((error:any) => {
+      alert("Correo y/o contraseña incorrectos, verifica la infomación ingresada.");
+      console.log(error);
+    });
   }
 
 }
