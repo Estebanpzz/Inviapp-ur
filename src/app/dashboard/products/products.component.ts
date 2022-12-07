@@ -16,6 +16,7 @@ import { docSnapshots } from '@angular/fire/firestore';
 export class ProductsComponent implements OnInit {
 
   productsList: Products[] = [];
+  productsList2: Products[] = [];
   productsObj: Products = {
     uid_user: '',
     name_product: '',
@@ -30,22 +31,28 @@ export class ProductsComponent implements OnInit {
   category_product: '';
   capacity_product: '';
   minimumStack_product: '' ;
-  
+  filterargs = {uid: 'uid'};
   constructor(private userService: UserService, private router: Router, private data : DataService) { }
 
+  
 
+  
   ngOnInit(): void {
     this.getAllProducts();
   }
+  async getAllProducts() {
 
-  getAllProducts() {
-
-    this.data.getAllProduct().subscribe(res => {
+    const uid = await this.userService.getUid();
+    console.log(uid);
+    
+    this.data.getAllProduct().subscribe(res =>{
       this.productsList = res.map((e: any) => {
+        
         const data = e.payload.doc.data();
         data.id = e.payload.doc.id;
-        
-        return data;
+
+       return data   ;
+           
       })
     }, err => {
       alert('Error while fetching products data');

@@ -15,8 +15,8 @@
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let products of productsList">
+            <tbody *ngIf="productsList" >
+              <tr *ngFor="let products of productsList  ">
                 <td>{{products.id}}</td>
                 <td>{{products.name_product}}</td>
                 <td>{{products.category_product}}</td>
