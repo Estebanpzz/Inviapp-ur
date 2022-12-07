@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl} from '@angular/forms';
 
@@ -20,11 +20,13 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const uid = await this.UserService.getUid();
+    console.log(uid);
   }
 
-  onSubmit() {
-    this.UserService.Login(this.formLogin.value)
+  async onSubmit() {
+    const res = await this.UserService.Login(this.formLogin.value)
     .then((response:any) => {
       console.log(response);
     })

@@ -23,11 +23,10 @@ export class FrontpageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    this.UserService.Login(this.formLogin.value)
+  async onSubmit() {
+    const res = await this.UserService.Login(this.formLogin.value)
     .then((response:any) => {
       console.log(response);
-      this.router.navigate(['/dashboard']);
     })
     .catch((error:any) => console.log(error));
   }
