@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { async } from 'rxjs';
 import { UserService } from '../services/user.service';
 import { User } from '../interfaces/user.interface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class SingUpComponent implements OnInit {
   submitted = false;
   
   constructor(private fb: FormBuilder, private afAuth: AngularFireAuth, 
-              private userService: UserService, private router: Router) {
+              private userService: UserService, private router: Router, private location: Location) {
     this.createUser = this.fb.group({
       email_user: ['', Validators.required],
       password_user: ['', Validators.required],
@@ -29,6 +30,9 @@ export class SingUpComponent implements OnInit {
   ngOnInit() {
   }
 
+  goBack(): void {
+    this.location.back();
+  }
   async nuevoUsuario(){
     this.submitted = true;
     if(this.createUser.invalid){
