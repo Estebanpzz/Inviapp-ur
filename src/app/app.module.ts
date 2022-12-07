@@ -15,9 +15,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserinfoComponent } from './userinfo/userinfo.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     FrontpageComponent,
     LoginComponent,
     SingUpComponent,
-    UserinfoComponent
+    UserinfoComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

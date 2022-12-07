@@ -3,6 +3,7 @@ import { Auth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPasswo
 import { User } from '../interfaces/user.interface';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, updatePassword } from '@firebase/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,14 +31,6 @@ export class UserService {
       return null;
     }else{
       return user.uid;
-    }
-  }
-  async getEmail(){
-    const user = await this.auth.currentUser;
-    if(user === null){
-      return null;
-    }else{
-      return user.email;
     }
   }
 

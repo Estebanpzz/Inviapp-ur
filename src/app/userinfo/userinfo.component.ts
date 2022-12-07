@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserinfoComponent implements OnInit {
 
+
   //variables
   userInfo: UserInfo;
   newPassword: FormGroup;
@@ -92,10 +93,6 @@ export class UserinfoComponent implements OnInit {
     });
   }
 
-
-
-
-
   open(content:any) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
 			(result) => {
@@ -107,9 +104,6 @@ export class UserinfoComponent implements OnInit {
 		);
 	}
 
-
-
-  // 
 	private getDismissReason(reason: any): string {
 		if (reason === ModalDismissReasons.ESC) {
 			return 'by pressing ESC';
@@ -119,6 +113,5 @@ export class UserinfoComponent implements OnInit {
 			return `with: ${reason}`;
 		}
 	}
-    
-  
+
 }
