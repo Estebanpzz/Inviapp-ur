@@ -15,13 +15,17 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontpageComponent,
     LoginComponent,
-    SingUpComponent
+    SingUpComponent,
+    UserinfoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
