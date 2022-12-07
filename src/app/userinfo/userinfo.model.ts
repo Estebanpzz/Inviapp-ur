@@ -1,5 +1,3 @@
-export class Userinfo{
-    name: any;
-    password: any;
+export class UserInfo{
     email: any;
 }

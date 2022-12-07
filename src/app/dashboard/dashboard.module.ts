@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import{ RouterModule } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
