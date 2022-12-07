@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Products } from '../interfaces/products.interface';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { collectionData, Firestore, collection, addDoc, CollectionReference, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { DocumentData } from '@angular/fire/compat/firestore';
+import { doc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +32,3 @@ export class ProductsService {
   }
 
 }   
-
