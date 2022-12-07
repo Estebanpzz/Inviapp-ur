@@ -1,0 +1,5 @@
+.table-wrapper {
+    max-height: 700px;
+    overflow: auto;
+    display:inline-block;
+  }
