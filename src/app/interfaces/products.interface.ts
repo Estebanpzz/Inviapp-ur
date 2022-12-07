@@ -1,9 +1,8 @@
 export interface Products {
-    id_product: string;
+    id: any;
     uid_user: any;
     name_product: string;
-
     category_product: string;
-    capacity_product: number;
-    minimumStack_product: number;
+    capacity_product: any;
+    minimumStack_product: any;
 }

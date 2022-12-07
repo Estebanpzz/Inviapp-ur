@@ -6,18 +6,22 @@
         <table class="table table-hover">
             <thead>
               <tr>
+                <th scope="col">Id</th>
                 <th scope="col">ProductName</th>
                 <th scope="col">Category</th>
                 <th scope="col">Capacity</th>
                 <th scope="col">MinimumStack</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let products of productsList">
+                <td>{{products.id}}</td>
                 <td>{{products.name_product}}</td>
                 <td>{{products.category_product}}</td>
                 <td>{{products.capacity_product}}</td>
                 <td>{{products.minimumStack_product}}</td>
+                <td><button href="" class="btn btn-danger" (click)="deleteProduct(products)">delete</button></td>
               </tr>
               
             </tbody>

@@ -7,21 +7,19 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   })
   export class DataService {
   
-    constructor(private afs: AngularFirestore){}
+    constructor(private afs : AngularFirestore){}
 
-
-    addProduct(products : Products){
-        products.id_product = this.afs.createId();
-        return this.afs.collection('/Products').add(products);
-      }
-    getProduct(){
+    addProduct(products : Products) {
+      products.id = this.afs.createId();
+      return this.afs.collection('/Products').add(products);
+    }
+    getAllProduct(){
         return this.afs.collection('/Products').snapshotChanges();
       }
-    deleteProduct(products : Products){
-      return this.afs.doc('/Products/'+products.id_product).delete();
+    deleteProducts(products : Products){
+      this.afs.doc('/Products/'+products.id).delete();
     }
     updateProduct(products : Products){
-      this.deleteProduct(products);
-      this.addProduct(products);
+      this.deleteProducts(products);
     }
   }
