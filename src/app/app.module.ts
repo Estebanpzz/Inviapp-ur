@@ -17,6 +17,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FrontpageComponent,
     LoginComponent,
     SingUpComponent,
-    UserinfoComponent
+    UserinfoComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
