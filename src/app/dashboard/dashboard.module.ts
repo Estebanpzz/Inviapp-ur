@@ -4,18 +4,18 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { InputsComponent } from './inputs/inputs.component';
-import { OutputsComponent } from './outputs/outputs.component';
+
 import { RegproductsComponent } from './regproducts/regproducts.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import{ RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ProductsComponent,
     InputsComponent,
-    OutputsComponent,
     RegproductsComponent,
     NavbarComponent,
   ],

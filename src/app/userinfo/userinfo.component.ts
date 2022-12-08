@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { UserInfo } from './userinfo.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from '@firebase/auth';
-
+import { UserInfo } from './userinfo.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-userinfo',
@@ -14,12 +15,18 @@ import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvide
 })
 export class UserinfoComponent implements OnInit {
 
+
+  //variables
   userInfo: UserInfo;
   newPassword: FormGroup;
   closeResult = '';
+  email_info: any;
+  uid_info: any;
+
+
 
   constructor(private userService: UserService, private fb: FormBuilder, private router: Router,
-              private modalService: NgbModal) {
+    private modalService: NgbModal, private data : DataService,private location: Location) { 
     this.newPassword = this.fb.group({
       old_password_user: ['', Validators.required],
       new_password_user: ['', Validators.required]
@@ -39,6 +46,26 @@ export class UserinfoComponent implements OnInit {
     console.log(this.userInfo);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
+
+  //view info
+  async info(){
+    const email = await this.userService.getEmail();
+    const uid = await this.userService.getUid();
+    
+    if (window.confirm('Are you sure ?')) {
+      
+      this.email_info = email;
+      this.uid_info = uid;
+    }
+  }
+
+
+
+  //update password
   async updatePassword(content:any){
     const user:any = getAuth().currentUser;
     const old_pwd: any = this.newPassword.value.old_password_user;

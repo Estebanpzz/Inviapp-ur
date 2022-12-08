@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
+import { DataService } from 'src/app/services/data.service';
+import { Products } from '../../interfaces/products.interface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-regproducts',
@@ -11,46 +14,76 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./regproducts.component.css']
 })
 export class RegproductsComponent implements OnInit {
-  Id: any;
-  ProductName: any;
-  Category: any;
-  Capacity: any;
-  MinimumStack: any;
 
-  newProduct: FormGroup;
-  submitted = false;
+  productsList: Products[] = [];
+  productsObj: Products = {
+    uid_user: '',
+    name_product: '',
+    id: '',
+    category_product: '',
+    capacity_product: '',
+    minimumStack_product: ''
+  };
+  uid_user: '';
+  name_product: '';
+  id: '';
+  category_product: '';
+  capacity_product: '';
+  minimumStack_product: '' ;
 
-  constructor(private fb: FormBuilder, private productService: ProductsService, 
-              private router: Router, private userService: UserService,
-              private readonly firebase: AngularFireAuth) {
-      this.newProduct = this.fb.group({
-        name_product: ['', Validators.required],
-        category_product: ['', Validators.required],
-        capacity_product: ['', Validators.required],
-        id_product: ['', Validators.required],
-        minimumStack_product: ['', Validators.required]
+  
+  constructor(private userService: UserService, private router: Router, private data : DataService,private location: Location) {
+     
+    }
+
+    ngOnInit(): void {
+      this.getAllProducts();
+    }
+
+    getAllProducts() {
+
+      this.data.getAllProduct().subscribe(res => {
+        this.productsList = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.id = e.payload.doc.id;
+          return data;
+        })
+      }, err => {
+        alert('Error while fetching products data');
       })
     }
 
-  ngOnInit(): void {
-  }
 
-  async agregarProducto(){
-    const uid = await this.userService.getUid();
-    const product: any = {
-      uid_user: uid,
-      name_product: this.newProduct.value.name_product,
-      category_product: this.newProduct.value.category_product,
-      capacity_product: this.newProduct.value.capacity_product,
-      id_product: this.newProduct.value.id_product,
-      minimumStack_product: this.newProduct.value.minimumStack_product
+    resetForm() {
+      this.uid_user = '';
+      this.name_product = '';
+      this.id = '';
+      this.category_product = '';
+      this.capacity_product = '';
+      this.minimumStack_product = '';
     }
-    this.productService.nuevoProducto(product).then(() => {
-      alert('Producto agregado con éxito');
-      this.router.navigate(['/dashboard']);
-    }).catch(error => {
-      console.log(error);
-    })
-  }
+
+    async addProduct() {
+      if (this.name_product == '' || this.category_product == '' || this.capacity_product == '' || this.minimumStack_product == '') {
+        alert('Fill all input fields');
+        return;
+      }
+      const uid = await this.userService.getUid();
+      this.productsObj.uid_user = uid;
+      this.productsObj.id = '';
+      this.productsObj.name_product = this.name_product;
+      this.productsObj.category_product = this.category_product;
+      this.productsObj.capacity_product = this.capacity_product;
+      this.productsObj.minimumStack_product = this.minimumStack_product;
+  
+      this.data.addProduct(this.productsObj);
+      this.resetForm();
+      alert('Correct register');
+    }
+
+    goBack(): void {
+      this.location.back();
+    }
+   
 
 }
