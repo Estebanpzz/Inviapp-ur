@@ -1,40 +1,50 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-primary  min-vh-100"  >
-    <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Inviapp</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <div class="d-grid gap-2">
-          <a routerLink="products" class="btn btn-light text-primary" type="button">Products</a>
-        </div>
-      </li>
-      <li>
-        <div class="d-grid gap-2">
-          <a routerLink="inputs" class="btn btn-primary" >Input Product</a>
-        </div>
-      </li>
-      <li>
-        <div class="d-grid gap-2">
-          <a routerLink="outputs" class="btn btn-primary" >Output Product</a>
-        </div>
-      </li>
-      <li>
-        <div class="d-grid gap-2">
-          <a routerLink="regproducts" class="btn btn-primary" >Register Product</a>
-        </div>
-      </li>
-    </ul>
-
-    <div class="container-fluid">
-      <a  id="userinfo" routerLinkActive="active" routerLink="/userinfo" class="text-decoration-none"><div class="row m-0">
-        <div class="col-8"><p class="text-decoration-none text-light">My profile</p></div>
-      </div></a>
-      <hr>
-      <div class="row">
-        <button (click)="onClick()" class="btn btn-danger">Logout</button>
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-primary  vh-100"  >
+  <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+    <img src="assets/img/logo_white.png" width="100px" alt="">
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto ">
+    <li class="nav-item">
+      <div class="d-grid gap-2 m-1">
+        <a class="btn btn-light text-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+          <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+        </svg> List Products</a>
       </div>
+    </li>
+    <li>
+      <div class="d-grid gap-2 m-1">
+        <a routerLink="inputs" class="btn btn-primary" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+        </svg> editProduct</a>
+      </div>
+    </li>
+    <li>
+      <div class="d-grid gap-2 m-1">
+        <a href="regproducts" routerLink="regproducts" class="btn btn-primary" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+          <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+          <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+        </svg> Register Product</a>
+      </div>
+    </li>
+  </ul>
+
+  <div class="container-fluid text-center">
+    <div class="row">
+    <div class="col-2"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16">
+      <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+      <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z"/>
+    </svg>
+    
+    </div>
+    <div class="col-10"><a  id="userinfo" routerLinkActive="active" routerLink="/userinfo" class="text-decoration-none"><div class="row m-0">
+      <div class="col-8"><p class="text-decoration-none text-light">  My profile</p></div>
+    </div></a>
+    <hr></div>
+  </div>
+    <div class="row">
+      <button (click)="onClick()" class="btn btn-danger">Logout</button>
     </div>
   </div>
-
+</div>
